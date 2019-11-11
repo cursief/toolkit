@@ -1,0 +1,18 @@
+////////////////////////
+//  Grid loop for creating classes like '.hide-xs' and '.hide-min-md'
+////////////////////////
+
+@each $device, $description, $min-width, $max-width in $devices {
+
+  @media screen and (min-width: $min-width) {
+    %hide-min-#{$device} {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: $max-width) {
+    %hide-#{$device} {
+      display: none;
+    }
+  }
+}

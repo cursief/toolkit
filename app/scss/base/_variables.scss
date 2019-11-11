@@ -1,0 +1,56 @@
+$cl-primary:              #3C5756;
+$cl-primary-light:        #B4C5C4;
+$cl-primary-light-alt:    #A2B4B3;
+$cl-secondary:            #FF8E7B;
+$cl-secondary-light:      #FFE9E6;
+$cl-tertiary:             #FCF9F7;
+$cl-tertiary-darker:      #F0EAE4;
+$cl-quaternary:           #413F3E;
+$cl-quaternary-light:     #6F6B68;
+
+$cl-white:                #ffffff;
+$cl-black:                #000000;
+
+$cl-border-light:         #DCD3CB;
+$cl-masonry-hover:        #183332;
+
+$grid-variant:            'class' !default; // Options: 'class' (default) or 'placehold'
+
+$sm-min-width:            0 !default; // Tablet
+$md-min-width:            720px !default; // Laptop
+$lg-min-width:            840px !default; // Laptop L
+$xl-min-width:            1440px !default; // 4K
+
+$sm-max-width:            $md-min-width - 1 !default;
+$md-max-width:            $lg-min-width - 1 !default;
+$lg-max-width:            $xl-min-width - 1 !default;
+$xl-max-width:            100% !default;
+
+$column-count:            12 !default;
+$gutter:                  3.2rem !default;
+$max-container-width:     1120px + 32px !default; // 32px is the gutter
+$column-px-width:         $max-container-width / $column-count;
+$column-percentage-width: ($column-px-width / $max-container-width) * 100%;
+
+$devices:                 ('sm', 'sm: 4 (#{$sm-min-width} t/m #{$sm-max-width})', $sm-min-width, $sm-max-width),
+                          ('md', 'md: 8 (#{$md-min-width} t/m #{$md-max-width})', $md-min-width, $md-max-width),
+                          ('lg', 'lg: 12 (#{$lg-min-width} t/m #{$lg-max-width})', $lg-min-width, $lg-max-width),
+                          ('xl', 'xl: 12 (+#{$xl-min-width} t/m ∞)', $xl-min-width, $xl-max-width);
+
+$spacing:                 ($gutter / 2) !default;
+
+$border-radius:           .5rem !default;
+
+$mono-font:               'Office Code Pro', Monaco, Consolas, monospace !default;
+$font-size:               16px !default;
+$line-height:             1.6 !default;
+
+$weight-thing:            100;
+$weight-light:            300;
+$weight-regular:          400;
+$weight-medium:           500;
+$weight-bold:             700;
+$weight-black:            900;
+
+$transition-bezier:       cubic-bezier(.5, -.5, .5, 1.5) !default;
+$transition-duration:     200ms !default;

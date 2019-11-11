@@ -1,0 +1,113 @@
+@mixin font-size($xs: null, $sm: null, $md: null, $lg: null) {
+  font-size: #{$xs};
+
+  @if $sm {
+    @include sm('+') {
+      font-size: #{$sm};
+    }
+  }
+
+  @if $md {
+    @include md('+') {
+      font-size: #{$md};
+    }
+  }
+
+  @if $lg {
+    @include lg('+') {
+      font-size: #{$lg};
+    }
+  }
+}
+
+@mixin clearfix {
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin animation($type, $duration, $direction: null, $timing: null) {
+
+  @if $direction == null {
+    animation: #{$type} $duration $timing;
+  } @else {
+    animation: #{$type}--#{$direction} $duration $timing;
+  }
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin sm($direction: null) {
+  @if $direction == '+' {
+    @media screen and (min-width: $sm-min-width) {
+      @content;
+    }
+  } @else if $direction == '-' {
+    @media screen and (max-width: $sm-max-width) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $sm-min-width) and (max-width: $sm-max-width) {
+      @content;
+    }
+  }
+}
+
+@mixin md($direction: null) {
+  @if $direction == '+' {
+    @media screen and (min-width: $md-min-width) {
+      @content;
+    }
+  } @else if $direction == '-' {
+    @media screen and (max-width: $md-max-width) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $md-min-width) and (max-width: $md-max-width) {
+      @content;
+    }
+  }
+}
+
+@mixin lg($direction: null) {
+  @if $direction == '+' {
+    @media screen and (min-width: $lg-min-width) {
+      @content;
+    }
+  } @else if $direction == '-' {
+    @media screen and (max-width: $lg-max-width) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $lg-min-width) and (max-width: $lg-max-width) {
+      @content;
+    }
+  }
+}
+
+@mixin xl($direction: null) {
+  @if $direction == '+' {
+    @media screen and (min-width: $xl-min-width) {
+      @content;
+    }
+  } @else if $direction == '-' {
+    @media screen and (max-width: $xl-max-width) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $xl-min-width) and (max-width: $xl-max-width) {
+      @content;
+    }
+  }
+}

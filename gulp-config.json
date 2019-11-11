@@ -1,0 +1,64 @@
+{
+  "buildOptions": {
+    "project": {
+      "source": "app",
+      "destination": "dist"
+    },
+    "server": {
+      "port": 3000
+    },
+    "pages": {
+      "source": "views/*.html",
+      "base": "views"
+    },
+    "partials": {
+      "source": "views/components/"
+    },
+    "images": {
+      "source": [
+        "assets/images/**/*.{png,jpg,jpeg}",
+        "!assets/images/og/*.*"
+      ],
+      "webp": {
+        "quality": 75
+      },
+      "png": {
+        "quality": 60,
+        "compressionLevel": 6
+      },
+      "jpeg": {
+        "quality": 80,
+        "progressive": true,
+        "optimiseScans": true,
+        "trellisQuantisation": true,
+        "chromaSubsampling": "4:4:4"
+      },
+      "resize": {
+        "@1x": 3,
+        "@2x": 2,
+        "@3x": 1
+      }
+    },
+    "scss": {
+      "source": "scss/application.scss",
+      "watch": "scss/**/*.scss",
+      "base": "scss",
+      "destination": "/",
+      "browserList": "last 1 version, chrome > 70, not dead"
+    },
+    "javascript": {
+      "watch": "js/**/*",
+      "input": "js/application.js",
+      "output": "bundle.min.js"
+    },
+    "otherAssets": {
+      "source": [
+        "robots.txt",
+        "assets/fonts/**/*",
+        "assets/images/**/*.svg",
+        "assets/images/**/!_*.svg",
+        "assets/images/og/*.png"
+      ]
+    }
+  }
+}

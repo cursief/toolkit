@@ -1,0 +1,9 @@
+%depth-0 {
+  z-index: -1;
+}
+
+@for $i from 1 through 10 {
+  %depth-#{$i} {
+    z-index: $i * 100;
+  }
+}

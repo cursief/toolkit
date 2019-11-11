@@ -1,0 +1,51 @@
+image: node:12.8.1
+
+pipelines:
+  custom:
+    init:
+    - step:
+        caches:
+          - node
+        script:
+          - apt-get update
+          - apt-get -qq install git-ftp
+          - npm i
+          - git config git-ftp.url ftp://$FTP_HOST
+          - git config git-ftp.user $FTP_USERNAME
+          - git config git-ftp.password $FTP_PASSWORD
+          - git config git-ftp.syncroot $BUILD_FOLDER
+          - ls -la
+          - git status
+          - npm run build:production
+          - ls -la
+          - git ftp init
+    deploy-all: # -- Deploys all files from the selected commit
+    - step:
+        caches:
+          - node
+        script:
+          - apt-get update
+          - apt-get -qq install git-ftp
+          - npm i
+          - git config git-ftp.url ftp://$FTP_HOST
+          - git config git-ftp.user $FTP_USERNAME
+          - git config git-ftp.password $FTP_PASSWORD
+          - git config git-ftp.syncroot $BUILD_FOLDER
+          - npm run build:production
+          - git ftp push -u "$FTP_USERNAME" -p "$FTP_PASSWORD" ftp://$FTP_HOST --all
+  branches: # Automated triggers on commits to branches
+    production: # -- When committing to production branch
+    - step:
+        deployment: production
+        caches:
+          - node
+        script:
+          - apt-get update
+          - apt-get -qq install git-ftp
+          - npm i
+          - git config git-ftp.url ftp://$FTP_HOST
+          - git config git-ftp.user $FTP_USERNAME
+          - git config git-ftp.password $FTP_PASSWORD
+          - git config git-ftp.syncroot $BUILD_FOLDER
+          - npm run build:production
+          - git ftp push --changed-only -u "$FTP_USERNAME" -p "$FTP_PASSWORD" ftp://$FTP_HOST

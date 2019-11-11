@@ -1,0 +1,48 @@
+{
+  "name": "cursief-toolkit",
+  "version": "1.0.0",
+  "description": "Cursief Toolkit",
+  "main": "README.MD",
+  "scripts": {
+    "watch": "gulp watch --silent",
+    "watch:skipImages": "gulp watch:skipImages --silent",
+    "watch:production": "gulp watch:production --silent",
+    "watch:production:skipImages": "gulp watch:production:skipImages --silent",
+    "build": "gulp build --silent",
+    "build:skipImages": "gulp build:skipImages --silent",
+    "build:production": "gulp build:production --silent",
+    "build:production:skipImages": "gulp build:production:skipImages --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Gideon Heilbron & Murtada al Mousawy",
+  "license": "ISC",
+  "homepage": "",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "chalk": "^2.4.2",
+    "del": "^5.1.0",
+    "fs": "0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-cli": "^2.2.0",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "map-stream": "0.0.7",
+    "rollup": "^1.26.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "sharp": "^0.23.2"
+  },
+  "dependencies": {}
+}

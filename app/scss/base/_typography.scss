@@ -1,0 +1,155 @@
+%font-primary {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+%font-secondary {
+  font-family: serif;
+}
+
+body {
+  @extend %font-primary;
+  color: $cl-quaternary;
+  font-weight: $weight-regular;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $cl-primary;
+  font-weight: $weight-bold;
+}
+
+///////////////////////
+//  Headings
+///////////////////////
+
+h1,
+%h1 {
+  @extend %font-secondary;
+  @include font-size(5.6rem, 7.2rem);
+  margin-bottom: 2.4rem;
+  color: $cl-primary;
+  line-height: 1.111;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+h2,
+%h2 {
+  @extend %font-secondary;
+  @include font-size(4.8rem, 5.6rem);
+  color: $cl-primary;
+  letter-spacing: 1px;
+  line-height: 1.142;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+h3,
+%h3 {
+  @extend %font-primary;
+  @include font-size(2.4rem, 3.2rem);
+  line-height: 1.4;
+}
+
+h4,
+%h4 {
+  @extend %font-secondary;
+  @include font-size(2.2rem);
+  line-height: 1.5;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+h5,
+%h5 {
+  @extend %font-secondary;
+  @include font-size(2rem);
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+h6,
+%h6 {
+  @extend %font-secondary;
+  @include font-size(1.8rem);
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+///////////////////////
+//  Global styling
+///////////////////////
+
+::selection {
+  background: lighten($cl-primary, 5%);
+}
+
+a {
+  color: $cl-primary;
+  text-decoration: none;
+  transition: color 200ms;
+  cursor: pointer;
+
+  &:hover {
+    color: $cl-primary;
+  }
+}
+
+///////////////////////
+//  Code typography
+///////////////////////
+
+pre,
+code,
+samp,
+style {
+  font-family: $mono-font;
+}
+
+pre {
+  @include font-size(1.4rem);
+  overflow: hidden;
+  width: 100%;
+  color: $cl-white;
+  padding: $spacing * 2;
+  margin: 3rem 0;
+  background-color: $cl-black;
+
+  code {
+    display: block;
+    padding: 0;
+    color: inherit;
+    border-radius: 0;
+    background-color: inherit;
+  }
+}
+
+code {
+  @include font-size(1.4rem);
+  color: $cl-white;
+  background-color: $cl-black;
+  border-radius: $border-radius;
+  padding: .15em .4em;
+}

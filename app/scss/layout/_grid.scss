@@ -1,0 +1,163 @@
+body:after {
+  @extend %depth-10;
+  position: fixed;
+  right: .5rem;
+  bottom: .5rem;
+  display: block;
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+  color: $cl-white;
+  background-color: rgba($cl-black, .6);
+}
+
+.grid-demo {
+  padding: 3rem 0;
+
+  .group > div {
+    display: flex;
+
+    > div {
+      width: 100%;
+      padding: 2rem;
+      margin: 0 0 2rem;
+      background: $cl-secondary;
+    }
+  }
+}
+
+.grid-overlay {
+  @extend %depth-10;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+
+  &.is-visible {
+    visibility: visible;
+  }
+
+  .container,
+  .group {
+    height: 100%;
+  }
+
+  .group {
+    background-color: rgba(red, .2);
+
+    > div {
+      height: 100%;
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: $cl-white;
+        background-color: rgba(red, .2);
+      }
+    }
+  }
+}
+
+.grid-button {
+  @extend %depth-10;
+  position: fixed;
+  left: .5rem;
+  bottom: .5rem;
+  padding: 1rem 2rem;
+  color: $cl-white;
+  font-size: 1.4rem;
+  background-color: $cl-black;
+  border-radius: 3rem;
+  outline: none;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 (-$spacing);
+  padding: 0 $spacing;
+
+  > * {
+    flex-basis: auto;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  }
+}
+
+.group--centered {
+  justify-content: center;
+}
+
+.group--vertical-centered {
+  align-items: center;
+}
+
+.group--align-right {
+  justify-content: flex-end;
+}
+
+.container {
+  width: 100%;
+  max-width: $max-container-width;
+  margin: 0 auto;
+  padding: 0 $spacing;
+}
+
+.container-fluid {
+  width: 100%;
+  float: left;
+  clear: both;
+  padding: 0 $spacing;
+}
+
+
+////////////////////////
+//  Grid loop for creating classes like '.xs12' and '.md6'
+////////////////////////
+
+*[class*="sm"],
+*[class*="md"],
+*[class*="lg"],
+*[class*="xl"] {
+  min-height: 1px;
+  position: relative;
+  padding-left: $spacing;
+  padding-right: $spacing;
+}
+
+@each $device, $description, $min-width, $max-width in $devices {
+
+  @media screen and (min-width: $min-width) {
+
+    body:after {
+      content: "#{$description}";
+    }
+
+    @for $column from 0 through $column-count {
+
+      .#{$device}#{$column} {
+        flex-grow: 0;
+
+        @if $device == 'sm' {
+          width: (($column * 3) * $column-percentage-width);
+        }
+
+        @if $device == 'md' {
+          width: (($column * 1.5) * $column-percentage-width);
+        }
+
+        @if $device == 'lg' {
+          width: ($column * $column-percentage-width);
+        }
+      }
+    }
+  }
+}
